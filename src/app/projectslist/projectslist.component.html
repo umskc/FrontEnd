@@ -1,0 +1,103 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper align-items-stretch auth auth-img-bg">
+<!--      <div class="row">
+        <div class="col-lg-9" style="margin: auto">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>-->
+      <div class="row"style="margin-top: 40px">
+        <div class="col-lg-9" style="margin: auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 style="font-size: large" align="center">KARTA DO GLOSOWANIA</h4>
+              <h1 style="font-size: medium">Prosimy Państwa o głosowanie na projekty poprzez zaznaczenie CheckBox'a w odpowiedniej kolumnie po prawej stronie karty do głosowania. Głosujący
+              może oddać głos na nie więcej niż dwa projekty lokalne i dwa projekty ogólnomiejskie.</h1>
+              <h4 class="card-title">Zadania / Projekty Lokalne</h4>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th> Lp.</th>
+                    <th> Tytuł Projektu</th>
+                    <th> Koszt szacunkowy</th>
+                    <th> Planowany termin zakończenia inwestycji</th>
+                    <th> Zaznacz aby oddać głos</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let localProject of localProjects">
+                    <td>
+                      {{localProject.id}}
+                    </td>
+                    <td class="col-md-4">
+                      {{ localProject.title }}</td>
+                    <td class="col-md-2" align="center">
+                      {{ localProject.totalCost }}
+                    </td>
+                    <td align="center">
+                      {{ localProject.deadLine }}
+                    </td>
+                    <td align="center">
+                      <input type="checkbox" [value]="localProject.id" (change)="onCheckChange($event)" [disabled]="countLocalProject>=2 && !localProject.ischecked">
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- GLOBAL -->
+      <div class="row" style="margin-top: 40px">
+        <div class="col-lg-9" style="margin: auto">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Zadania / Projekty ogólnomiejkie</h4>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th> Lp.</th>
+                    <th> Tytuł Projektu</th>
+                    <th> Koszt szacunkowy</th>
+                    <th> Planowany termin zakończenia inwestycji</th>
+                    <th> Zaznacz aby oddać głos</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let globalProject of globalProjects">
+                    <td>
+                      {{globalProject.id}}
+                    </td>
+                    <td class="col-md-4">
+                      {{ globalProject.title }}</td>
+                    <td class="col-md-2" align="center">
+                      {{ globalProject.totalCost }}
+                    </td>
+                    <td align="center">
+                      {{ globalProject.deadLine }}
+                    </td>
+                    <td align="center">
+                      <input type="checkbox" [value]="globalProject.id" (change)="onCheckChangeLocalProject($event)" [disabled]="countGlobalProject>=2 && !globalProject.isChecked">
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" (click)="oddajGlos()" style="margin-top:20px">Zagłosuj</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>

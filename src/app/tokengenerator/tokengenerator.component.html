@@ -1,0 +1,70 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-stretch auth auth-img-bg">
+      <div class="row flex-grow">
+        <div class="col-lg-6 d-flex align-items-center justify-content-center">
+          <div class="auth-form-transparent text-left p-3">
+            <form class="p-3" [formGroup]="myForm">
+              <hr>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend bg-transparent">
+                        <span class="input-group-text bg-transparent border-right-0">
+                          <i class="mdi mdi-account-outline text-primary"></i>
+                        </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg border-left-0" placeholder="Imie"
+                         formControlName="imie" required>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend bg-transparent">
+                        <span class="input-group-text bg-transparent border-right-0" style="margin-top:20px">
+                          <i class="mdi mdi-account-outline text-primary"></i>
+                        </span>
+                  </div>
+                  <input id="surname" type="text" class="form-control form-control-lg border-left-0"
+                         style="margin-top:20px"
+                         placeholder="nazwisko" formControlName="nazwisko">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend bg-transparent">
+                        <span class="input-group-text bg-transparent border-right-0" style="margin-top:20px">
+                          <i class="mdi mdi-account-outline text-primary"></i>
+                        </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg border-left-0" style="margin-top:20px"
+                         placeholder="Ulica" formControlName="street">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend bg-transparent">
+                        <span class="input-group-text bg-transparent border-right-0" style="margin-top:20px">
+                          <i class="mdi mdi-account-outline text-primary"></i>
+                        </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg border-left-0" style="margin-top:20px"
+                         placeholder="Nr Domu" formControlName="homeNumber">
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend bg-transparent">
+                        <span class="input-group-text bg-transparent border-right-0" style="margin-top:20px">
+                          <i class="mdi mdi-account-outline text-primary"></i>
+                        </span>
+                  </div>
+                  <input type="text" class="form-control form-control-lg border-left-0" style="margin-top:20px"
+                         placeholder="Nr Lokalu" formControlName="localNumber">
+                </div>
+                <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" (click)="generatetoken()" style="margin-top:20px">Przejdź do Głosowania</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-lg-6 login-half-bg d-flex flex-row">
+          <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2020 All rights SKC XD
+            reserved.</p>
+        </div>
+      </div>
+    </div>
+    <!-- content-wrapper ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+</div>
