@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AdminUser, TokenService} from '../../_services/token.service';
 import {AuthService} from '../../_services/auth.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private tokenService: TokenService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private tokenService: TokenService, private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -31,7 +32,9 @@ export class LoginComponent implements OnInit {
     this.authService.login(adminUser).subscribe(value => {
       console.log(value.token);
       this.tokenService.saveToken(value.token);
-    }
+    }, error => {
+      this.toastr.error('Nieprawidłowy login lub hasło');
+      }
     );
   }
 }
