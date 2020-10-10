@@ -16,13 +16,15 @@ import { ProjectslistComponent } from './projectslist/projectslist.component';
 import { Routes, RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 import { ThanksComponent } from './thanks/thanks.component';
+import {authInterceptorProviders} from './_helpers/auth.interceptor';
 
 
 const routes: Routes = [
   { path: '', component: TokengeneratorComponent},
   { path: 'projects', component: ProjectslistComponent},
   { path: 'loader', component: LoaderComponent},
-  { path: 'thanks', component: ThanksComponent}
+  { path: 'thanks', component: ThanksComponent},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
 ];
 
 @NgModule({
@@ -47,7 +49,7 @@ const routes: Routes = [
     MatButtonModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
+const TOKEN_KEY = 'auth-token';
+const USER_KEY = 'auth-user';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +18,19 @@ export class TokenService {
     return this.httpClient.post<Token>('http://localhost:8080/token', user);
   }
 
+  public saveToken(token: string): void {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
+  }
+
+  public getToken(): string {
+    return sessionStorage.getItem(TOKEN_KEY);
+  }
+
+}
+
+export interface JWT{
+  token: string;
 }
 
 export interface Token {
@@ -27,4 +43,9 @@ export interface User {
   street?: string;
   homeNumber?: string;
   localNumber?: string;
+}
+
+export interface AdminUser {
+  username: string;
+  password: string;
 }
