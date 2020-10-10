@@ -23,6 +23,10 @@ export class TokenService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
+  signOut(): void {
+    window.sessionStorage.clear();
+  }
+
   public getToken(): string {
     return sessionStorage.getItem(TOKEN_KEY);
   }

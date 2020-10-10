@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CanActiveService} from '../_services/can-active.service';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -13,7 +14,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  declarations: [LoginComponent, DashboardComponent],
+  declarations: [LoginComponent, DashboardComponent, SidebarComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
